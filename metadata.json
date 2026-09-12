@@ -29,7 +29,7 @@
     "data-testid",
     "Git"
   ],
-  "status": "complete",
+  "status": "draft",
   "moduleNames": {
     "1": "Environment + Cypress Basics + First Login",
     "2": "Complete Login Suite + Sign-in Helper",
