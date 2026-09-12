@@ -1,0 +1,14 @@
+{
+  "name": "swaploop-cypress-module-1",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node server.js",
+    "cy:open": "cypress open --e2e",
+    "cy:run": "cypress run --spec cypress/e2e/01_login.cy.js",
+    "cy:run:all": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "15.10.0"
+  }
+}
