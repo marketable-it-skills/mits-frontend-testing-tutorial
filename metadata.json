@@ -16,18 +16,10 @@
     }
   ],
   "technologies": [
-    "Cypress",
-    "JavaScript",
-    "Node.js",
-    "Docker"
+    "Cypress"
   ],
   "tags": [
-    "E2E Testing",
-    "Cypress",
-    "WorldSkills",
-    "Module G",
-    "data-testid",
-    "Git"
+    "E2E Testing"
   ],
   "status": "draft",
   "moduleNames": {
