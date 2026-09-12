@@ -4,7 +4,7 @@
 
 Run the SwapLoop template and implement the first two Module G Part A login tests with stable selectors and a clean `beforeEach` reset.
 
-> **Start from:** Copy `courses/mits-frontend-testing-tutorial/cypress-frontend-testing-template/` into a working folder (or use this module’s `solution/` as a reference after you finish).
+> **Start from:** Your practice repo created from [mits-frontend-testing-tutorial-template](https://github.com/marketable-it-skills/mits-frontend-testing-tutorial-template) → **Use this template** → clone your new repo (see [Getting Started](../README.md#-getting-started)). Use this module’s `solution/` as a reference after you finish.
 
 **Rules (from Module G):**
 
@@ -18,15 +18,15 @@ Run the SwapLoop template and implement the first two Module G Part A login test
 
 ### Step 1.1: Skim the competition outline
 
-Open `courses/mits-frontend-testing-tutorial/proejct-task/module-g.md` and read **Part A — Frontend testing (Cypress)** through **A1 · Login**.
+Open [Skills IT Training Camp 2026 Module G description](https://skillsit.eu/web-technologies/sitc2026-s17-module-g/project-description) and read **Part A — Frontend testing (Cypress)** through **A1 · Login**.
 
 Note the seed accounts:
 
-| Email | Password | Notes |
-| ----- | -------- | ----- |
-| `lin.xiaoyu@swaploop.test` | `password123` | Active swappable |
-| `chen.wei@swaploop.test` | `password123` | Active integrated |
-| `sun.hao@swaploop.test` | `password123` | Suspended |
+| Email                      | Password      | Notes             |
+| -------------------------- | ------------- | ----------------- |
+| `lin.xiaoyu@swaploop.test` | `password123` | Active swappable  |
+| `chen.wei@swaploop.test`   | `password123` | Active integrated |
+| `sun.hao@swaploop.test`    | `password123` | Suspended         |
 
 ### Step 1.2: Map this module’s scope
 
@@ -45,7 +45,7 @@ Leave the other three login `it`s as `TODO` for Module 2.
 
 ### Step 2.1: Open the project
 
-From the template (or your working copy):
+From your practice repo (created from the template):
 
 ```text
 cypress-frontend-testing-template/
@@ -70,7 +70,7 @@ Open `public/login.html` and find attributes like `data-testid="login-email"`. T
 ### Step 3.1: Run the Node server
 
 ```bash
-cd path/to/your-working-copy
+cd path/to/your-practice-repo
 node server.js
 ```
 
@@ -127,17 +127,17 @@ npm install
 Edit `cypress.config.js`:
 
 ```js
-const { defineConfig } = require('cypress')
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
     // Local default. Docker Compose overrides via CYPRESS_baseUrl=http://web:3000
-    baseUrl: 'http://127.0.0.1:3000',
+    baseUrl: "http://127.0.0.1:3000",
     supportFile: false,
     video: false,
-    specPattern: 'cypress/e2e/**/*.cy.js',
+    specPattern: "cypress/e2e/**/*.cy.js",
   },
-})
+});
 ```
 
 > **Note:** If you started the server on `3080`, set `baseUrl` to `http://127.0.0.1:3080` instead.
@@ -164,9 +164,9 @@ Select **E2E Testing** → your browser → open `01_login.cy.js`.
 
 ```js
 beforeEach(() => {
-  cy.request('DELETE', '/api/v1/__reset')
-  cy.visit('/login.html')
-})
+  cy.request("DELETE", "/api/v1/__reset");
+  cy.visit("/login.html");
+});
 ```
 
 `DELETE /api/v1/__reset` restores seed riders/stations so tests do not depend on leftover logins or prior registers.
@@ -182,13 +182,13 @@ beforeEach(() => {
 Replace the first `it` body:
 
 ```js
-it('loads the login page', () => {
-  cy.get('[data-testid="login-page"]').should('be.visible')
-  cy.get('[data-testid="login-title"]').should('contain', 'Sign in')
-  cy.get('[data-testid="login-email"]').should('be.visible')
-  cy.get('[data-testid="login-password"]').should('be.visible')
-  cy.get('[data-testid="login-submit"]').should('be.visible')
-})
+it("loads the login page", () => {
+  cy.get('[data-testid="login-page"]').should("be.visible");
+  cy.get('[data-testid="login-title"]').should("contain", "Sign in");
+  cy.get('[data-testid="login-email"]').should("be.visible");
+  cy.get('[data-testid="login-password"]').should("be.visible");
+  cy.get('[data-testid="login-submit"]').should("be.visible");
+});
 ```
 
 ### Step 6.2: Run the single test
@@ -210,18 +210,18 @@ npm run cy:run
 The login page ships with a demo email in the input. If you submit without clearing it, you will **not** hit the “Email is required” client check in `public/js/login.js`.
 
 ```js
-it('shows an error when email is missing', () => {
-  cy.get('[data-testid="login-email"]').clear()
-  cy.get('[data-testid="login-password"]').type('password123')
-  cy.get('[data-testid="login-submit"]').click()
+it("shows an error when email is missing", () => {
+  cy.get('[data-testid="login-email"]').clear();
+  cy.get('[data-testid="login-password"]').type("password123");
+  cy.get('[data-testid="login-submit"]').click();
 
   cy.get('[data-testid="login-error"]')
-    .should('be.visible')
-    .and('contain', 'Email is required')
+    .should("be.visible")
+    .and("contain", "Email is required");
 
-  cy.url().should('include', '/login.html')
-  cy.get('[data-testid="login-page"]').should('be.visible')
-})
+  cy.url().should("include", "/login.html");
+  cy.get('[data-testid="login-page"]').should("be.visible");
+});
 ```
 
 ### Step 7.2: Confirm you stay on login

@@ -14,7 +14,7 @@
 
 ## 📚 Overview
 
-This course teaches **Cypress end-to-end testing** by implementing the full rider-UI suite from the Skill IT Training Camp 2026 competition outline **[Module G – SwapLoop Automated Testing](./proejct-task/module-g.md)** (**Part A — Frontend testing with Cypress**). You work against the provided **SwapLoop** multi-page app and do **not** change application source — you fill Cypress `it` bodies under `cypress/e2e/` until all Part A expectations pass.
+This course teaches **Cypress end-to-end testing** by implementing the full rider-UI suite from the Skill IT Training Camp 2026 competition outline **[Module G – SwapLoop Automated Testing](https://skillsit.eu/web-technologies/sitc2026-s17-module-g/project-description)** (**Part A — Frontend testing with Cypress**). You work against the provided **SwapLoop** multi-page app and do **not** change application source — you fill Cypress `it` bodies under `cypress/e2e/` until all Part A expectations pass.
 
 The approach is **practice-first and competition-aligned**: every workshop maps to real Module G `it` titles. You get a green assertion in Module 1, then layer auth edge cases, multi-step registration, stations/reserve, activity journeys, QR scan, and HTTP intercepts.
 
@@ -22,16 +22,16 @@ The approach is **practice-first and competition-aligned**: every workshop maps 
 
 A complete, deterministic Cypress suite for Module G Part A (specs A1–A8):
 
-| Spec | File | Coverage |
-|------|------|----------|
-| A1 Login | `01_login.cy.js` | Page load, validation, invalid credentials, suspended account, successful sign-in |
-| A2 Register | `02_register.cy.js` | Vehicle profile validation; swappable + integrated register |
-| A3 Stations | `03_stations.cy.js` | List, filters, compatibility badges, public browse |
-| A4 Station detail | `04_station_detail.cy.js` | Open hub, reserve, 409 conflict, block second hold |
-| A5 Activity swap | `05_activity_swap.cy.js` | Reserved UI → start → confirm → receipt; cancel |
-| A6 Activity charging | `06_activity_charging.cy.js` | Start charge → live status → collect → receipt |
-| A7 QR scan | `07_qr_scan.cy.js` | Emulator, valid poster, mismatched payload |
-| A8 HTTP errors | `08_http_errors.cy.js` | Protected route redirect, intercept 500, double-submit guard |
+| Spec                 | File                         | Coverage                                                                          |
+| -------------------- | ---------------------------- | --------------------------------------------------------------------------------- |
+| A1 Login             | `01_login.cy.js`             | Page load, validation, invalid credentials, suspended account, successful sign-in |
+| A2 Register          | `02_register.cy.js`          | Vehicle profile validation; swappable + integrated register                       |
+| A3 Stations          | `03_stations.cy.js`          | List, filters, compatibility badges, public browse                                |
+| A4 Station detail    | `04_station_detail.cy.js`    | Open hub, reserve, 409 conflict, block second hold                                |
+| A5 Activity swap     | `05_activity_swap.cy.js`     | Reserved UI → start → confirm → receipt; cancel                                   |
+| A6 Activity charging | `06_activity_charging.cy.js` | Start charge → live status → collect → receipt                                    |
+| A7 QR scan           | `07_qr_scan.cy.js`           | Emulator, valid poster, mismatched payload                                        |
+| A8 HTTP errors       | `08_http_errors.cy.js`       | Protected route redirect, intercept 500, double-submit guard                      |
 
 ### Who This Course Is For
 
@@ -181,8 +181,6 @@ Finish edge cases and prove the entire Cypress suite green under time pressure.
 
 ## 🚀 Getting Started
 
-### Option 1: Follow the modules sequentially
-
 1. Create your practice repo from the GitHub template: [mits-frontend-testing-tutorial-template](https://github.com/marketable-it-skills/mits-frontend-testing-tutorial-template) → **Use this template** → clone your new repo
 2. Read [Module 1 overview](./module-1/overview.md)
 3. Work through [Module 1 workshop](./module-1/workshop.md) in your practice repo
@@ -190,8 +188,6 @@ Finish edge cases and prove the entire Cypress suite green under time pressure.
 5. Continue through Modules 2–6
 
 > A local copy also lives in this course as [`cypress-frontend-testing-template/`](./cypress-frontend-testing-template/) if you prefer not to use GitHub.
-
-### Option 2: Run the template app + Cypress
 
 In your practice repo (from the template):
 
@@ -208,28 +204,28 @@ Docker Compose (assessment-style layout) is documented in the [template README](
 
 ### Seed accounts (tests only)
 
-| Email | Password | Role |
-|-------|----------|------|
+| Email                      | Password      | Role                                           |
+| -------------------------- | ------------- | ---------------------------------------------- |
 | `lin.xiaoyu@swaploop.test` | `password123` | Swappable rider (`SL-48`) — default happy path |
-| `chen.wei@swaploop.test` | `password123` | Integrated rider — charging flows |
-| `sun.hao@swaploop.test` | `password123` | Suspended — distinct 403 login failure |
+| `chen.wei@swaploop.test`   | `password123` | Integrated rider — charging flows              |
+| `sun.hao@swaploop.test`    | `password123` | Suspended — distinct 403 login failure         |
 
 ### Competition outline
 
-See [`proejct-task/module-g.md`](./proejct-task/module-g.md) — **Part A — Frontend testing (Cypress)** only.
+See [`proejct-task/module-g.md`](https://skillsit.eu/web-technologies/sitc2026-s17-module-g/project-description) — **Part A — Frontend testing (Cypress)** only.
 
 ---
 
 ## 📚 Modules
 
-| Module | Title | Time | Topics |
-|--------|-------|------|--------|
+| Module         | Title                                      | Time | Topics                                    |
+| -------------- | ------------------------------------------ | ---- | ----------------------------------------- |
 | [1](module-1/) | Environment + Cypress Basics + First Login | 2–3h | visit/get/type/assert, `__reset`, testids |
-| [2](module-2/) | Complete Login Suite + Sign-in Helper | 2–3h | A1 complete, validation vs API errors |
-| [3](module-3/) | Registration Flows (A2) | 2–3h | Multi-step forms, rider modes |
-| [4](module-4/) | Stations + Detail & Reserve (A3–A4) | 3–4h | Filters, reserve, 409 conflict |
-| [5](module-5/) | Activity — Swap & Charging (A5–A6) | 3–4h | State machines, API-true receipts |
-| [6](module-6/) | QR Scan + Intercepts + Full Suite (A7–A8) | 2–3h | Emulator, `cy.intercept`, rehearsal |
+| [2](module-2/) | Complete Login Suite + Sign-in Helper      | 2–3h | A1 complete, validation vs API errors     |
+| [3](module-3/) | Registration Flows (A2)                    | 2–3h | Multi-step forms, rider modes             |
+| [4](module-4/) | Stations + Detail & Reserve (A3–A4)        | 3–4h | Filters, reserve, 409 conflict            |
+| [5](module-5/) | Activity — Swap & Charging (A5–A6)         | 3–4h | State machines, API-true receipts         |
+| [6](module-6/) | QR Scan + Intercepts + Full Suite (A7–A8)  | 2–3h | Emulator, `cy.intercept`, rehearsal       |
 
 ---
 
